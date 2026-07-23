@@ -40,15 +40,14 @@ bookit/
 │   ├── src/main/java/com/bookit/
 │   │   ├── auth/                    # registration, login, JWT
 │   │   ├── security/                # security config, filters
-│   │   ├── user/
-│   │   ├── business/
-│   │   ├── staffmember/
-│   │   ├── servicetype/
-│   │   ├── availability/            # rules & exceptions
-│   │   ├── booking/                 # booking flow, slot calculation
-│   │   └── common/
-│   └── src/main/resources/
-│       └── application.yml
+│   │   ├── users/
+│   │   ├── businesses/
+│   │   ├── staffmembers/
+│   │   ├── services/
+│   │   ├── categories/            
+│   │   ├── booking/                
+│   └── .env
+│       
 └── frontend/
     └── src/app/
         ├── public/          # marketplace browsing, booking page
@@ -89,11 +88,10 @@ The app runs on `http://localhost:4200`.
 
 | Entity | Description |
 |---|---|
-| `User` | Any registered person — can own businesses, work as staff, and book as a customer |
-| `Business` | A company profile, owned by a `User`, has a unique public slug |
-| `StaffMember` | A person working at a business, optionally linked to a `User` account |
-| `ServiceType` | A bookable service (duration, price, buffer), offered by one or more staff |
-| `AvailabilityRule` | Recurring weekly working hours per staff member |
-| `AvailabilityException` | One-off blocks or extra availability on a specific date |
-| `Booking` | A confirmed appointment between a customer, a staff member, and a service |
+| `Users` | Any registered person — can own businesses, work as staff, and book as a customer |
+| `Businesses` | A company profile, owned by a `User`, has a unique public slug |
+| `StaffMembers` | A person working at a business, optionally linked to a `User` account |
+| `Services` | A bookable service (duration, price, buffer), offered by one or more staff |
+| `Categories` | Recurring weekly working hours per staff member |
+| `Bookings` | A confirmed appointment between a customer, a staff member, and a service |
 
