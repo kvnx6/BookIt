@@ -40,13 +40,15 @@ bookit/
 │   ├── src/main/java/com/bookit/
 │   │   ├── auth/                    # registration, login, JWT
 │   │   ├── security/                # security config, filters
-│   │   ├── users/
-│   │   ├── businesses/
-│   │   ├── staffmembers/
-│   │   ├── services/
-│   │   ├── categories/            
-│   │   ├── booking/                
+│   │   ├── user/
+│   │   ├── business/
+│   │   ├── staffmember/
+│   │   ├── service/
+│   │   ├── category/            
+│   │   ├── booking/
+│   │   ├── availabilityRule/               
 │   └── .env
+│   └── .env.example
 │       
 └── frontend/
     └── src/app/
