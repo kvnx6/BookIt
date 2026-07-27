@@ -15,7 +15,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.security.SignatureException;
+import io.jsonwebtoken.security.SignatureException;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;

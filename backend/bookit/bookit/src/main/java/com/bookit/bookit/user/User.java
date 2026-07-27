@@ -16,9 +16,8 @@ import java.util.List;
 
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
-@Entity
 @Accessors(chain = true)
-@Table(name = "users")
+@Table(name = "users") @Entity
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
