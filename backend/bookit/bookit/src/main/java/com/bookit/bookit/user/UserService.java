@@ -19,14 +19,14 @@ public class UserService {
         return userRepository.findAll().stream().map(UserMapper::toDto).toList();
     }
 
-    public UserDTO getUserById(int id) {
+    public UserDTO getUserById(Integer id) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("User not found with this id: " + id));
         return UserMapper.toDto(user);
     }
 
     @Transactional
-    public void putUserById(int id, UpdateUserDTO updateUserDTO) {
+    public void putUserById(Integer id, UpdateUserDTO updateUserDTO) {
         User user = userRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("User not found with this id: " + id));
         User updatedUser = UserMapper.toEntity(updateUserDTO, user);
         userRepository.save(updatedUser);

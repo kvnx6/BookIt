@@ -21,12 +21,12 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UserDTO> getUser(@PathVariable int id) {
+    public ResponseEntity<UserDTO> getUser(@PathVariable Integer id) {
         return ResponseEntity.ok(userService.getUserById(id));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> putUser(@PathVariable int id, @RequestBody @Valid UpdateUserDTO updateUserDTO) {
+    public ResponseEntity<Void> putUser(@PathVariable Integer id, @RequestBody @Valid UpdateUserDTO updateUserDTO) {
         userService.putUserById(id, updateUserDTO);
         return ResponseEntity.ok().build();
     }
