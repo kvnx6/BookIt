@@ -1,5 +1,6 @@
 package com.bookit.bookit.auth.jwt;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
@@ -17,8 +18,8 @@ import java.util.function.Function;
 @Service
 public class JwtService {
 
-    @Value("${bazario.jwt.secret}")
-    private String secret;
+    Dotenv dotenv = Dotenv.load();
+    private final String secret = System.setProperty("SECRET", dotenv.get("SECRET"));;
 
     // Tokeninformationen abpacken und generieren
     public String generateToken(UserDetails userDetails) {
@@ -30,7 +31,6 @@ public class JwtService {
                 .subject(user.getEmail())
                 .issuedAt(new Date())
                 .expiration(new Date(System.currentTimeMillis() + SecurityConstants.EXPIRATION_TIME))
-                // Bei Michi: .signWith(getSignInKey(), SignatureAlgorithm.ES256)
                 .signWith(getSignInKey())
                 .compact();
     }
