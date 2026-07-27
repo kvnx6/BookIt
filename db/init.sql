@@ -57,9 +57,22 @@ CREATE TABLE staffmembers (
     business_id     INT NOT NULL,
     display_name    VARCHAR(150) NOT NULL,
     created_at      DATE NOT NULL,
+    available       BOOLEAN NOT NULL DEFAULT TRUE,
 
     CONSTRAINT fk_staff_business
         FOREIGN KEY (business_id) REFERENCES businesses(id)
+        ON DELETE CASCADE
+);
+
+CREATE TABLE availability_rules (
+    id              INT AUTO_INCREMENT PRIMARY KEY,
+    staffmember_id  INT NOT NULL,
+    day_of_week     INT NOT NULL,
+    start_time      TIME NOT NULL,
+    end_time        TIME NOT NULL,
+
+    CONSTRAINT fk_availrule_staff
+        FOREIGN KEY (staffmember_id) REFERENCES staffmembers(id)
         ON DELETE CASCADE
 );
 
