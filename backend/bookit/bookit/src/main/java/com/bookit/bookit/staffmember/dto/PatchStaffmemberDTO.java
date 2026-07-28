@@ -1,7 +1,6 @@
 package com.bookit.bookit.staffmember.dto;
 
-import com.bookit.bookit.business.Business;
-import jakarta.validation.constraints.NegativeOrZero;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,9 +8,9 @@ import lombok.Setter;
 
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
-public class StaffmemberDTO {
-    private Integer id;
-    private Business business;
+public class PatchStaffmemberDTO {
+    @Size(max = 150, message = "your nickname must not be longer than 150")
     private String nickname;
-    private boolean available;
+
+    private Boolean available;
 }

@@ -40,6 +40,12 @@ public class BusinessController {
     @PostMapping
     public ResponseEntity<Void> postBusiness(@Valid @RequestBody CreateBusinessDTO createBusinessDTO) {
         businessService.postBusiness(createBusinessDTO);
+        return ResponseEntity.status(201).build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteBusiness(@PathVariable Integer id) {
+        businessService.deleteBusiness(id);
         return ResponseEntity.ok().build();
     }
 }

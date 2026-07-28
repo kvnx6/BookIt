@@ -31,4 +31,9 @@ public class UserService {
         User updatedUser = UserMapper.toEntity(updateUserDTO, user);
         userRepository.save(updatedUser);
     }
+
+    public void deleteUser(Integer id) {
+        userRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("User not found with this id: " + id));
+        userRepository.deleteById(id);
+    }
 }

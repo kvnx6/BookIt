@@ -8,7 +8,6 @@ import com.bookit.bookit.category.Category;
 import com.bookit.bookit.category.CategoryRepository;
 import com.bookit.bookit.user.User;
 import com.bookit.bookit.user.UserRepository;
-import com.bookit.bookit.user.dto.UpdateUserDTO;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
@@ -71,5 +70,10 @@ public class BusinessService {
 
 
         businessRepository.save(business);
+    }
+
+    public void deleteBusiness(Integer id) {
+        businessRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Business not found with this id: " + id));
+        businessRepository.deleteById(id);
     }
 }
