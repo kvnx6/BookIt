@@ -10,8 +10,8 @@ import lombok.experimental.Accessors;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDate;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 @Getter @Setter
@@ -44,7 +44,7 @@ public class User implements UserDetails {
     private String surname;
 
     @Column(nullable = false, name = "created_at")
-    private Date createdAt;
+    private LocalDate createdAt;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

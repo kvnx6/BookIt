@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
@@ -45,7 +45,7 @@ public class Business {
     private String city;
 
     @Column(nullable = false, name = "created_at")
-    private Date createdAt;
+    private LocalDate createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id", nullable = false)
