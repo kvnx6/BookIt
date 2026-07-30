@@ -1,6 +1,6 @@
 package com.bookit.bookit.availabilityRule.dto;
 
-import com.bookit.bookit.staffmember.Staffmember;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,10 +10,9 @@ import java.time.LocalTime;
 
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
-public class AvailabilityRuleDTO {
-    private Integer id;
-    private Staffmember staffmember;
-    private Integer dayOfWeek;
+public class PatchAvailabilityRuleDTO {
+    @NotNull
     private LocalTime startTime;
+    @NotNull
     private LocalTime endTime;
 }

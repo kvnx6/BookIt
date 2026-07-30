@@ -39,6 +39,11 @@ public class GlobalExceptionHandler {
         return buildError(HttpStatus.METHOD_NOT_ALLOWED, ex.getMessage());
     }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ApiError> handleIllegalArgumentException(IllegalArgumentException ex) {
+        return buildError(HttpStatus.BAD_REQUEST, ex.getMessage());
+    }
+
     @ExceptionHandler(EntityExistsException.class)
     public ResponseEntity<ApiError> handleEntityExistsException(EntityExistsException ex) {
         return buildError(HttpStatus.CONFLICT, ex.getMessage());
